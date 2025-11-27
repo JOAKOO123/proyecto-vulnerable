@@ -21,6 +21,8 @@ pipeline {
 
         stage('Run App Container') {
             steps {
+                sh "docker stop ${APP_NAME} || true"
+                sh "docker rm ${APP_NAME} || true"
                 sh "docker run -d --name ${APP_NAME} -p 5000:5000 ${APP_NAME}"
                 sh "sleep 5"
             }
