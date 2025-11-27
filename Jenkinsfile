@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         APP_NAME = "vulnerable-app"
-        REPORTS_DIR = "reports/zap"
     }
 
     stages {
@@ -11,12 +10,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/JOAKOO123/proyecto-vulnerable.git', branch: 'main'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'pip install --no-cache-dir -r requirements.txt'
             }
         }
 
