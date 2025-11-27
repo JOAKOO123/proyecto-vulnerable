@@ -2,11 +2,11 @@
 
 echo "Running OWASP ZAP Baseline Scan..."
 
-docker pull owasp/zap2docker-weekly
+docker pull ghcr.io/zaproxy/zaproxy:weekly
 
 docker run --rm \
   -v $(pwd)/reports/zap:/zap/reports \
-  owasp/zap2docker-weekly \
+  ghcr.io/zaproxy/zaproxy:weekly \
   zap-baseline.py \
   -t http://host.docker.internal:5000 \
   -r zap-report.html
